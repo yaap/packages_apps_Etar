@@ -22,10 +22,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+
+import com.android.calendar.BaseActivity
 import com.android.calendar.DynamicTheme
+
 import ws.xsoh.etar.R
-
-
 
 const val EXTRA_SHOW_FRAGMENT = "settingsShowFragment"
 
@@ -36,7 +37,7 @@ const val EXTRA_SHOW_FRAGMENT = "settingsShowFragment"
  * - Added EXTRA_SHOW_FRAGMENT
  * - Don't assume title from setting, instead set it in each fragment individually
  */
-class SettingsActivity : AppCompatActivity(),
+class SettingsActivity : BaseActivity(),
         PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
 
     private val dynamicTheme = DynamicTheme()
@@ -65,6 +66,8 @@ class SettingsActivity : AppCompatActivity(),
                     .commit()
         }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        setupInsets(findViewById(R.id.main_frame))
     }
 
     override fun onSupportNavigateUp(): Boolean {

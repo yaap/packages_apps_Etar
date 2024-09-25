@@ -113,6 +113,8 @@ public class EditEventActivity extends AbstractCalendarActivity {
             ft.show(mEditFragment);
             ft.commit();
         }
+
+        setupInsets(findViewById(R.id.main_frame));
     }
 
     @SuppressWarnings("unchecked")
